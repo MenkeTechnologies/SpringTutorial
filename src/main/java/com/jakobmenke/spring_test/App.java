@@ -28,7 +28,6 @@ public class App {
         ((FileSystemXmlApplicationContext)applicationContext).close();
 
         System.out.println(FilenameUtils.getBaseName("/etc/passwd"));
-
         App.tonka();
 
     }
