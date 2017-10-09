@@ -1,9 +1,14 @@
 package com.jakobmenke.spring_test;
 
+import org.apache.commons.io.FileSystemUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
+
+import java.io.File;
+import java.io.IOException;
 
 public class App {
 
@@ -14,11 +19,15 @@ public class App {
 
     public static void main(String[] args) {
 
+        Runtime.getRuntime().addShutdownHook(new Thread(()->{
+            System.out.println("bye");
+        }));
+
         ApplicationContext applicationContext = new FileSystemXmlApplicationContext("src/main/java/com/jakobmenke/beans/beans.xml");
 
         Person p = (Person) applicationContext.getBean("person");
 
-        Person p2 = (Person) applicationContext.getBean("person");
+        Person p2 = (Person) applicationContext.getBean("person2");
 
         p2.setTaxId(25);
 
@@ -26,10 +35,7 @@ public class App {
 
         System.out.println(p2);
 
-//        ((FileSystemXmlApplicationContext)applicationContext).close();
 
-        System.out.println(FilenameUtils.getBaseName("/etc/passwd"));
-        App.tonka();
 
     }
 }

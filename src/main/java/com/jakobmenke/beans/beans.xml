@@ -4,13 +4,23 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" default-init-method="init" default-destroy-method="destroy">
 
 
-    <bean id="person" class="com.jakobmenke.spring_test.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy">
+    <bean id="person" class="com.jakobmenke.spring_test.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy" factory-method="getInstance">
         <constructor-arg value="Jacob"></constructor-arg>
         <constructor-arg value="5"></constructor-arg>
         <property name="taxId" value="123"></property>
 
         <property name="address" ref="address"></property>
+    </bean>
 
+    <bean id="personFactory" class="com.jakobmenke.spring_test.PersonFactory">
+
+    </bean>
+    <bean id="person2" class="com.jakobmenke.spring_test.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy" factory-bean="personFactory" factory-method="createPerson">
+        <constructor-arg value="Tom Jones"></constructor-arg>
+        <constructor-arg value="5"></constructor-arg>
+        <property name="taxId" value="123"></property>
+
+        <property name="address" ref="address"></property>
     </bean>
 
     <bean id="address" class="com.jakobmenke.spring_test.Address">
