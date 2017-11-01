@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" default-init-method="init" default-destroy-method="destroy">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" xmlns:p="http://www.springframework.org/schema/p" default-init-method="init" default-destroy-method="destroy">
 
 
     <bean id="person" class="com.jakobmenke.spring_test.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy" factory-method="getInstance">
@@ -20,7 +20,7 @@
         <constructor-arg value="5"></constructor-arg>
         <property name="taxId" value="123"></property>
 
-        <property name="address" ref="address"></property>
+        <property name="address" ref="address2"></property>
     </bean>
 
     <bean id="address" class="com.jakobmenke.spring_test.Address">
@@ -29,4 +29,22 @@
 
     </bean>
 
+    <bean id="address2" class="com.jakobmenke.spring_test.Address" p:street="999 Vineyard" p:postcode="3224">
+    </bean>
+
+    <bean id="animal1" class="com.jakobmenke.spring_test.Animal">
+        <property name="name" value="Igor"></property>
+        <property name="type" value="Lion"></property>
+        <property name="address" ref="address2"></property>
+        <property name="ad"></property>
+
+    </bean>
+    <bean id="animal2" class="com.jakobmenke.spring_test.Animal">
+        <property name="name" value="Jonny"></property>
+        <property name="type" value="Jaguar"></property>
+    </bean>
+    <bean id="animal3" class="com.jakobmenke.spring_test.Animal">
+        <property name="name" value="Matt"></property>
+        <property name="type" value="Crow"></property>
+    </bean>
 </beans>

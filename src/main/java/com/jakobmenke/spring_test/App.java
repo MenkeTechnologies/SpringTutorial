@@ -1,41 +1,37 @@
 package com.jakobmenke.spring_test;
 
-import org.apache.commons.io.FileSystemUtils;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-
-import java.io.File;
-import java.io.IOException;
 
 public class App {
+    private void dao() {
 
-    static void tonka (){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans/bean2.xml");
 
-        System.out.println("coolio at home braahs ___" + System.getProperty("java.io.tmpdir"));
+        OffersDAO offersDAO = (OffersDAO)applicationContext.getBean("offersDao");
+
+        for (Offer offer : offersDAO.getOffers()) {
+            System.out.println("tonka got " + offer);
+        }
     }
 
     public static void main(String[] args) {
 
-        Runtime.getRuntime().addShutdownHook(new Thread(()->{
-            System.out.println("bye");
-        }));
+        new App().dao();
+    }
 
-        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("src/main/java/com/jakobmenke/beans/beans.xml");
+    private void new_stuff() {
+ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans/bean2.xml");
 
-        Person p = (Person) applicationContext.getBean("person");
+        Robo robo = (Robo)applicationContext.getBean("robo");
 
-        Person p2 = (Person) applicationContext.getBean("person2");
+        robo.tonka("tommy");
 
-        p2.setTaxId(25);
+        System.out.println(robo);
 
-        System.out.println(p);
-
-        System.out.println(p2);
-
-
+        System.out.println(robo.getSpeech());
 
     }
+
+
 }

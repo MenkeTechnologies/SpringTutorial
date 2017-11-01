@@ -1,5 +1,7 @@
 package com.jakobmenke.spring_test;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Person {
     String name;
     private int id;
@@ -25,6 +27,8 @@ public class Person {
         return name;
     }
 
+
+    @Autowired
     public void setName(String name) {
         this.name = name;
     }
@@ -33,6 +37,7 @@ public class Person {
         return id;
     }
 
+    @Autowired
     public void setId(int id) {
         this.id = id;
     }
