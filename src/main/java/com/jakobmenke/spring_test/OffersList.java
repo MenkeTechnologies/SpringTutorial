@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Component("offersDao")
-class OffersDAO {
+class OffersList {
 
 
     private NamedParameterJdbcTemplate dataSource;

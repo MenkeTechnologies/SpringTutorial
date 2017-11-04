@@ -12,13 +12,13 @@ class App {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans/bean2.xml");
 
         try {
-            OffersDAO offersDAO = (OffersDAO) applicationContext.getBean("offersDao");
+            OffersList offersList = (OffersList) applicationContext.getBean("offersDao");
 
-            for (Offer offer : offersDAO.getOffers()) {
+            for (Offer offer : offersList.getOffers()) {
                 System.out.println("tonka got " + offer);
             }
 
-            Offer offer = offersDAO.getOff(2);
+            Offer offer = offersList.getOff(2);
 
             Gson gson = new Gson();
 
