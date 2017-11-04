@@ -1,11 +1,9 @@
 package com.jakobmenke.spring_test;
 
 public class Animal {
-
-String name;
-String type;
-
-Address address;
+    private String name;
+    private String type;
+    private Address address;
 
     public Address getAddress() {
         return address;
@@ -30,7 +28,6 @@ Address address;
     public void setType(String type) {
         this.type = type;
     }
-
 
     @Override
     public String toString() {

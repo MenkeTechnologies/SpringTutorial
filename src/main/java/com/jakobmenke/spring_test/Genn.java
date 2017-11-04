@@ -3,7 +3,7 @@ package com.jakobmenke.spring_test;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Genn {
+class Genn {
 
     public String getTodd() {
         return todd;
@@ -21,10 +21,5 @@ public class Genn {
 
 
         return "asdfasfasdfasddaf";
-    }
-
-
-    public static void main(String[] args) {
-
     }
 }

@@ -18,6 +18,22 @@ public class Offer {
                 '}';
     }
 
+    public Offer() {
+    }
+
+    public Offer(int id, String name, String email, String text) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.text = text;
+    }
+
+    public Offer(String name, String email, String text) {
+        this.name = name;
+        this.email = email;
+        this.text = text;
+    }
+
     public int getId() {
         return id;
     }
@@ -48,9 +64,5 @@ public class Offer {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public static void main(String[] args) {
-
     }
 }

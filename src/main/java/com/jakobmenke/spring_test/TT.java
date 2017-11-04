@@ -2,7 +2,7 @@ package com.jakobmenke.spring_test;
 
 import java.io.File;
 
-public class TT {
+class TT {
     public static void main(String[] args) {
 
         File f = new File("t.txt");

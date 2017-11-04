@@ -3,7 +3,7 @@ package com.jakobmenke.spring_test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class Person {
-    String name;
+    private String name;
     private int id;
     private int taxId;
 

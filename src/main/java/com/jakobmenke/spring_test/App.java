@@ -1,17 +1,38 @@
 package com.jakobmenke.spring_test;
 
+import com.google.gson.Gson;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
-public class App {
+class App {
     private void dao() {
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans/bean2.xml");
 
-        OffersDAO offersDAO = (OffersDAO)applicationContext.getBean("offersDao");
+        try {
+            OffersDAO offersDAO = (OffersDAO) applicationContext.getBean("offersDao");
 
-        for (Offer offer : offersDAO.getOffers()) {
-            System.out.println("tonka got " + offer);
+            for (Offer offer : offersDAO.getOffers()) {
+                System.out.println("tonka got " + offer);
+            }
+
+            Offer offer = offersDAO.getOff(2);
+
+            Gson gson = new Gson();
+
+            String pp = gson.toJson(offer);
+
+            System.out.println(pp);
+
+
+            System.out.println(offer);
+        } catch (CannotGetJdbcConnectionException e) {
+            e.printStackTrace();
+            System.out.println();
+        } catch (DataAccessException d) {
+            d.printStackTrace();
         }
     }
 
@@ -21,17 +42,14 @@ public class App {
     }
 
     private void new_stuff() {
-ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans/bean2.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans/bean2.xml");
 
-        Robo robo = (Robo)applicationContext.getBean("robo");
+        Robo robo = (Robo) applicationContext.getBean("robo");
 
         robo.tonka("tommy");
 
         System.out.println(robo);
 
         System.out.println(robo.getSpeech());
-
     }
-
-
 }

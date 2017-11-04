@@ -3,12 +3,8 @@ package com.jakobmenke.spring_test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-public class Stuff {
-    public static void main(String[] args) {
-
-    }
-
-     static void first(ApplicationContext applicationContext) {
+class Stuff {
+    static void first(ApplicationContext applicationContext) {
         Logger logger = (Logger) applicationContext.getBean("logger");
 
         logger.writeConsole("console");
@@ -52,17 +48,11 @@ public class Stuff {
     }
 
      static void shutdownHook() {
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("bye");
-        }));
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> System.out.println("bye")));
     }
 
     static void tonka() {
 
         System.out.println("coolio at home braahs ___" + System.getProperty("java.io.tmpdir"));
-    }
-
-    public static  void xxxxx(){
-
     }
 }

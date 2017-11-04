@@ -13,8 +13,4 @@ public class FileWriter {
 
     public FileWriter() {
     }
-
-    public static void main(String[] args) {
-
-    }
 }

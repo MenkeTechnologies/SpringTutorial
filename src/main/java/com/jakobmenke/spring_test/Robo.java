@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Robo {
 
-    String speech;
+    private String speech;
 
     public String getSpeech() {
         return speech;

@@ -20,8 +20,4 @@ public class ConsoleWriter {
     public void setTest(@Value("cool") String test){
         this.test = test;
     }
-
-    public static void main(String[] args) {
-
-    }
 }
